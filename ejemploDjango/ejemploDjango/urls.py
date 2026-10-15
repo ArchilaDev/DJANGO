@@ -19,9 +19,13 @@ from django.urls import path
 
 #llamamos al controlador
 
-from ejemploDjango.views import *
+from .views import * #opcional colocar .views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio), #si quieres que sea la pagina principal solo le quitas el alias y le dejas las comillas
+    path('index/', inicio), #si quieres que sea la pagina principal solo le quitas el alias y le dejas las comillas
+    path('', fechaSistema),
+    path('edad/<int:anio>', cacularEdad)
 ]
+

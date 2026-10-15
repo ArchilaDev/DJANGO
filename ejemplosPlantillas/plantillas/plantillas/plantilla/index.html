@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #0d0e11;
+                color: #e3e2e6;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-cursor {
+            pointer-events: none;
+            transition: transform 0.15s ease-out, opacity 0.2s ease-out;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.2s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#93000a", "surface-container": "#1f1f23", "on-tertiary-container": "#232d98", "primary-fixed": "#acedff", "on-primary-fixed-variant": "#004e5c", "surface": "#121316", "secondary": "#c0c1ff", "secondary-fixed-dim": "#c0c1ff", "on-surface": "#e3e2e6", "on-secondary": "#1000a9", "background": "#121316", "surface-bright": "#38393c", "surface-container-high": "#292a2d", "inverse-on-surface": "#303034", "surface-variant": "#343538", "on-tertiary-fixed": "#000767", "error": "#ffb4ab", "on-primary-fixed": "#001f26", "on-secondary-fixed": "#07006c", "on-surface-variant": "#bcc9cd", "tertiary-fixed-dim": "#bdc2ff", "secondary-container": "#3131c0", "surface-container-low": "#1b1b1f", "on-primary-container": "#00424f", "on-tertiary-fixed-variant": "#2f3aa3", "surface-tint": "#4cd7f6", "primary-fixed-dim": "#4cd7f6", "on-primary": "#003640", "on-secondary-fixed-variant": "#2f2ebe", "primary": "#4cd7f6", "on-background": "#e3e2e6", "tertiary": "#bdc2ff", "inverse-primary": "#00687a", "on-secondary-container": "#b0b2ff", "tertiary-container": "#959fff", "surface-container-highest": "#343538", "outline-variant": "#3d494c", "on-tertiary": "#131e8c", "primary-container": "#06b6d4", "surface-container-lowest": "#0d0e11", "on-error-container": "#ffdad6", "on-error": "#690005", "surface-dim": "#121316", "tertiary-fixed": "#e0e0ff", "inverse-surface": "#e3e2e6", "outline": "#869397", "secondary-fixed": "#e1e0ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "3rem", "space-xl": "4rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "space-lg": "2rem" }, "fontFamily": { "headline-md": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "label-code": ["JetBrains Mono"], "body-lg": ["JetBrains Mono"], "display-hero": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "body-sm": ["JetBrains Mono"], "label-caps": ["JetBrains Mono"], "body-md": ["JetBrains Mono"], "display-hero-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"] }, "fontSize": { "headline-md": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "600" }], "label-code": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "display-hero": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "700" }], "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "400" }], "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.14em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "display-hero-mobile": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "500" }] } } } };</script>
+</head>
+
+<body
+    class="bg-surface-container-lowest font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary">
+    <div class="custom-cursor fixed top-0 left-0 w-3 h-3 bg-primary pointer-events-none z-[100] -translate-x-1/2 -translate-y-1/2 hidden md:block mix-blend-difference"
+        id="cursor-dot"></div>
+    <div class="custom-cursor fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[99] -translate-x-1/2 -translate-y-1/2 hidden md:block transition-all duration-150 ease-out"
+        id="cursor-ring"></div>
+    <header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl">
+        <div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><a
+                class="flex items-center gap-space-sm group" href="#home"><img alt="Shivani Web Studio Emblem"
+                    class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1W_oAMhS1GJeSTUvmi541k6gXyuW_2Kc8zZLCHxmIw3iJXZ_fMZt1kK2KvU8_zB-iboxhef3mlLyNeIHQse82bllqPnL1OJmSkNQrb3SQ2Ahjbu_n2sOnMq3vGKmKpPF1pxZYZP_zPnCYNRWo-N9pSAiAtINW_loUHYI39LhuFZxFz5GqjOsCXWEN9eZbhyowrv1eAhidZYtd0jazvKHrhimkPZS2-YeitCkw67cTYFVq6ZIHmmgmiVfDVL" /><span
+                    class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface group-hover:text-primary transition-colors">Shivani
+                    Studio</span></a>
+            <nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a
+                    aria-current="page" class="uppercase transition-colors tracking-widest text-primary font-bold"
+                    data-path="home" href="#home">Home</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="work" href="#work">Work</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="services" href="#services">Services</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="process" href="#process">Process</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="about" href="#about">About</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="faq" href="#faq">FAQ</a><a
+                    class="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors tracking-widest"
+                    data-path="contact" href="#contact">Contact</a></nav>
+            <div class="flex items-center gap-space-md"><a
+                    class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary-container px-space-md py-space-sm font-label-code text-label-code uppercase tracking-wider font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:shadow-[0_0_28px_rgba(6,182,212,0.5)] active:scale-95"
+                    href="#contact"> {{Nombre}} {{Apellido}} {{Fecha.year}} {{Fecha.month}} {{Fecha.day}} </a>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+                        class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button
+                    aria-label="Toggle Menu"
+                    class="xl:hidden p-space-xs text-on-surface hover:text-primary transition-colors flex items-center justify-center"
+                    id="mobile-menu-trigger"><span class="material-symbols-outlined text-[24px]">menu</span></button>
+            </div>
+        </div>
+    </header>
+    <div class="fixed inset-0 z-[60] bg-surface-container-lowest/95 backdrop-blur-2xl flex flex-col justify-between px-margin-mobile py-space-lg transition-transform duration-500 translate-x-full"
+        id="mobile-drawer">
+        <div class="flex items-center justify-between pb-space-md">
+            <div class="flex items-center gap-space-sm"><img alt="Shivani Web Studio Emblem"
+                    class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1W_oAMhS1GJeSTUvmi541k6gXyuW_2Kc8zZLCHxmIw3iJXZ_fMZt1kK2KvU8_zB-iboxhef3mlLyNeIHQse82bllqPnL1OJmSkNQrb3SQ2Ahjbu_n2sOnMq3vGKmKpPF1pxZYZP_zPnCYNRWo-N9pSAiAtINW_loUHYI39LhuFZxFz5GqjOsCXWEN9eZbhyowrv1eAhidZYtd0jazvKHrhimkPZS2-YeitCkw67cTYFVq6ZIHmmgmiVfDVL" /><span
+                    class="font-headline-sm text-headline-sm uppercase text-on-surface">Shivani Studio</span></div>
+            <button aria-label="Close Menu" class="p-space-xs text-on-surface hover:text-primary"
+                id="mobile-menu-close"><span class="material-symbols-outlined text-[28px]">close</span></button>
+        </div>
+        <nav class="flex flex-col gap-space-md my-auto"><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#home">[01] // Home</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#work">[02] // Work</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#services">[03] // Services</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#process">[04] // Process</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#about">[05] // About</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#faq">[06] // FAQ</a><a
+                class="mobile-link font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#contact">[07] // Contact</a></nav>
+        <div class="flex flex-col gap-space-sm pt-space-md"><a
+                class="mobile-link w-full text-center bg-primary-container text-on-primary-container py-space-md font-label-code text-label-code uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(6,182,212,0.3)]"
+                href="#contact">Start a Project →</a>
+            <p class="font-label-code text-label-code text-on-surface-variant text-center">hello@shivaniweb.studio</p>
+        </div>
+    </div>
+    <main class="w-full pt-20 bg-surface-container-lowest min-h-screen">
+        <div class="flex flex-col w-full">
+            <!-- HERO SECTION -->
+            <section
+                class="relative w-full pt-10 pb-20 lg:pt-16 lg:pb-32 px-margin-mobile lg:px-margin scroll-mt-24 overflow-hidden"
+                id="home">
+                <!-- Ambient Emissive Backdrop -->
+                <div
+                    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10">
+                </div>
+                <div
+                    class="absolute top-1/3 right-10 w-[420px] h-[420px] bg-secondary-container/20 rounded-full blur-[120px] pointer-events-none -z-10">
+                </div>
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                    <!-- Left Column: Typography & Conversion Vectors -->
+                    <div class="lg:col-span-7 flex flex-col gap-space-md z-10">
+                        <!-- Live Telemetry Tag -->
+                        <div
+                            class="inline-flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs self-start">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+                            <span class="font-label-caps text-label-caps uppercase text-on-surface tracking-widest">
+                                SHIVANI WEB STUDIO // AVAILABLE FOR Q2/Q3 PROJECTS
+                            </span>
+                        </div>
+                        <!-- Master Headline -->
+                        <h1 class="font-display-hero text-on-surface uppercase tracking-tight"
+                            style="font-size: clamp(2.25rem, 5.2vw, 4.85rem); line-height: 1.05;">
+                            WE BUILD DIGITAL <span class="text-primary">EXPERIENCES</span> WORTH REMEMBERING.
+                        </h1>
+                        <!-- Supporting Narrative -->
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                            Custom websites designed and engineered to make visionary brands look credible, communicate
+                            with surgical clarity, and systematically turn visitors into high-value customers.
+                        </p>
+                        <!-- CTA Array -->
+                        <div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+                            <a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container px-space-lg py-space-md font-label-code text-label-code uppercase tracking-wider font-bold transition-all shadow-xl hover:shadow-[0_0_28px_rgba(6,182,212,0.45)] active:scale-95"
+                                href="#contact">
+                                [ 01 // START A PROJECT ] →
+                            </a>
+                            <a class="inline-flex items-center gap-space-xs bg-surface-container-low text-on-surface hover:text-primary px-space-lg py-space-md font-label-code text-label-code uppercase tracking-wider transition-all hover:bg-surface-container"
+                                href="#work">
+                                <span>View Selected Work</span>
+                                <span class="material-symbols-outlined text-[18px]">south_east</span>
+                            </a>
+                        </div>
+                        <!-- Metric Diagnostics -->
+                        <div class="grid grid-cols-3 gap-gutter pt-space-lg">
+                            <div class="flex flex-col gap-space-xs">
+                                <span class="font-display-hero text-headline-lg text-primary">48+</span>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Global
+                                    Launches</span>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <span class="font-display-hero text-headline-lg text-secondary">99.8%</span>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Satisfaction
+                                    Rate</span>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <span class="font-display-hero text-headline-lg text-on-surface">14</span>
+                                <span
+                                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Awwwards
+                                    / FWA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column: Interactive Studio Console Window -->
+                    <div class="lg:col-span-5 relative mt-space-lg lg:mt-0">
+                        <!-- Main Console Slab -->
+                        <div
+                            class="relative bg-surface-container-low shadow-2xl p-space-md transition-transform duration-500 hover:-translate-y-1">
+                            <!-- Terminal Window Bar -->
+                            <div
+                                class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-lowest px-space-sm py-space-xs">
+                                <div class="flex items-center gap-space-xs">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                                </div>
+                                <span
+                                    class="font-label-code text-label-code text-on-surface-variant tracking-wider">shivaniweb.studio/preview</span>
+                                <span class="material-symbols-outlined text-on-surface-variant text-[16px]">lock</span>
+                            </div>
+                            <!-- Screen Simulation Viewport -->
+                            <div
+                                class="relative bg-surface-container-lowest p-space-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
+                                <!-- Dynamic Geometric Wireframe Visual -->
+                                <div
+                                    class="relative w-full h-36 flex items-center justify-center overflow-hidden bg-surface-container">
+                                    <svg class="w-full h-full text-primary/30" fill="none" viewbox="0 0 400 160">
+                                        <path d="M0 80 Q 100 20, 200 80 T 400 80" fill="none" stroke="currentColor"
+                                            stroke-width="2"></path>
+                                        <path d="M0 95 Q 100 35, 200 95 T 400 95" fill="none" stroke="currentColor"
+                                            stroke-dasharray="4 4" stroke-width="1.5"></path>
+                                        <circle class="text-primary/20" cx="200" cy="80" fill="currentColor" r="28">
+                                        </circle>
+                                        <circle class="text-primary" cx="200" cy="80" fill="currentColor" r="14">
+                                        </circle>
+                                    </svg>
+                                    <div
+                                        class="absolute bottom-2 left-2 bg-surface-container-lowest/80 px-2 py-0.5 font-label-code text-label-code text-primary">
+                                        WEBGL_CANVAS :: 60_FPS
+                                    </div>
+                                </div>
+                                <!-- Code Execution Stream -->
+                                <div
+                                    class="mt-space-sm bg-surface-container-high p-space-sm font-label-code text-label-code text-on-surface-variant flex flex-col gap-0.5">
+                                    <div class="text-secondary"><span class="text-primary font-bold">const</span> studio
+                                        = new ModernExperience({</div>
+                                    <div class="pl-4">rigor: <span class="text-primary">"surgical"</span>,</div>
+                                    <div class="pl-4">renderSpeed: <span class="text-primary">0.18</span>,</div>
+                                    <div class="pl-4">lighthouseScore: <span class="text-primary">100</span></div>
+                                    <div class="text-secondary">});</div>
+                                </div>
+                            </div>
+                            <!-- Spec Floating Badges -->
+                            <div
+                                class="absolute -top-4 -right-4 bg-surface-container-high px-space-md py-space-xs shadow-xl flex items-center gap-space-xs">
+                                <span class="material-symbols-outlined text-primary text-[16px]">speed</span>
+                                <span class="font-label-code text-label-code text-on-surface uppercase font-bold">100%
+                                    Core Vitals</span>
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -left-4 bg-surface-container px-space-md py-space-xs shadow-xl flex items-center gap-space-sm">
+                                <div class="flex items-center gap-1">
+                                    <span class="w-3 h-3 bg-primary"></span>
+                                    <span class="w-3 h-3 bg-secondary"></span>
+                                    <span class="w-3 h-3 bg-on-surface"></span>
+                                </div>
+                                <span class="font-label-code text-label-code text-on-surface-variant">DESIGN TOKENS
+                                    OK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SELECTED WORK / PORTFOLIO -->
+            <section
+                class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface-container-lowest scroll-mt-24"
+                id="work">
+                <div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                        <div class="flex flex-col gap-space-xs">
+                            <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                                <span>[ SECTION 02 ]</span>
+                                <span>// ARCHIVE OF CRAFT</span>
+                            </div>
+                            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                                Selected Case Studies
+                            </h2>
+                        </div>
+                        <!-- Filter Controls -->
+                        <div class="flex flex-wrap gap-space-xs font-label-code text-label-code">
+                            <button
+                                class="filter-btn active bg-primary-container text-on-primary-container px-space-md py-space-xs font-bold transition-colors"
+                                type="button">ALL</button>
+                            <button
+                                class="filter-btn bg-surface-container text-on-surface-variant hover:text-on-surface px-space-md py-space-xs transition-colors"
+                                type="button">FINTECH</button>
+                            <button
+                                class="filter-btn bg-surface-container text-on-surface-variant hover:text-on-surface px-space-md py-space-xs transition-colors"
+                                type="button">WEBGL / 3D</button>
+                            <button
+                                class="filter-btn bg-surface-container text-on-surface-variant hover:text-on-surface px-space-md py-space-xs transition-colors"
+                                type="button">EDITORIAL</button>
+                        </div>
+                    </div>
+                    <!-- Case Studies Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+                        <!-- Project 1: Aura Spatial Audio -->
+                        <article
+                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
+                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    data-alt="Futuristic black and electric cyan spatial sound wave visualizer in a dark monolithic tech room, cyber luxury aesthetic, high detail render"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOHlQ9Os9_81Hgt008Fj1e2bXEZ1rGkI0ddlYxRApbUc4lAVzfH24uGjpANHzDh2pbBg2q-f9XwFociTVDUmW2eGDryH1JidYg7Jq8X_VfkfFh_kQHXE8JnG8mxAw7-6BaGQPgeD-rY2M5IXp5pvw5RrnnI_JTwA3TxYoHJ-sBFBZfAAeytYxAgJXXZADYniQ8yDDJd1PBqp-VsafAyv2LC0Ja-0eP6kE8Fotuo-0OiCerAkJe62KXJw" />
+                                <div
+                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-primary">
+                                    FEATURED BENCHMARK
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-primary text-on-primary font-label-code text-label-code px-space-sm py-space-xs font-bold">
+                                    +180% ENGAGEMENT
+                                </div>
+                            </div>
+                            <div class="p-space-lg flex flex-col gap-space-sm">
+                                <div
+                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
+                                    <span>THREE.JS</span> • <span>WEBGL</span> • <span>REACT</span>
+                                </div>
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                                    Aura Spatial Audio
+                                </h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    An immersive computational audio interface engineered with custom GLSL shaders, 3D
+                                    interactive acoustics, and dynamic spatialized frequencies.
+                                </p>
+                                <div
+                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
+                                    <span class="text-on-surface-variant">CLIENT: AURA ACOUSTICS AG</span>
+                                    <span
+                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
+                                        CASE →</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Project 2: Kroma Pay -->
+                        <article
+                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
+                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    data-alt="High tech dark mode financial interface dashboard on obsidian screen with glowing neon cyan telemetry curves and geometric data grids"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPH2XEwPq0_BPwPwQsgl2mcp5CVRJg1cNGd61LD1PJ9zKFx9SELomMhbZYNdW5DeisuYh7Slpfa9REmg8I2lPkNeolQtCj22DtwGp2zr70g5vBuNb5FA3_4OQvnZ8RN6DSeXmgg6zW0HtydSwsjmVvMfx0ClJVXZhBLWa6QBCMSAgYTG5OKjBozi5ns-4QjCqTjT-yz4cmzVEfJHttbTOuTwfn6DVwPJA6Gd2dDl494aAF6i-5NfZdVg" />
+                                <div
+                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-secondary">
+                                    ENTERPRISE FINTECH
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-surface-container-high text-primary font-label-code text-label-code px-space-sm py-space-xs font-bold">
+                                    $1.4B ROUTED VOLUME
+                                </div>
+                            </div>
+                            <div class="p-space-lg flex flex-col gap-space-sm">
+                                <div
+                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
+                                    <span>NEXT.JS</span> • <span>DESIGN SYSTEMS</span> • <span>TYPESCRIPT</span>
+                                </div>
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                                    Kroma Pay Global Treasury
+                                </h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    High-throughput cross-border asset protocol interface featuring zero-latency
+                                    transaction updates, sub-second settlement analytics, and institutional compliance
+                                    suites.
+                                </p>
+                                <div
+                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
+                                    <span class="text-on-surface-variant">CLIENT: KROMA FOUNDATION</span>
+                                    <span
+                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
+                                        CASE →</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Project 3: Verve Architecture -->
+                        <article
+                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
+                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    data-alt="Brutalist architectural concrete pavilion at dusk with sharp shadows and subtle cyan accent light lines, high dynamic range photograph"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKTQghcKwsD_X3C7_v7dYPRgTV7LX0mwvl8EoH77bYJmGIr0-_c0wijMctkQiXSosr_Z4KnueWzYYK2ZENixS1pdicHbGdNkouWpBOOnC3OzHU69CPP0qJxoPgquvY-A0FDC5Qe4YT3cI_UCzsn0ycWEd3A7SxqG9Y7iMHLnnvL4oRVXT0L_L2PaYEqHGGMlVdew-XBFyUdeEZkgZ_FQO-OWNHUwfxq30FfOK4IGPbDbyvmg9U7prMA" />
+                                <div
+                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-on-surface">
+                                    MONOLITHIC EDITORIAL
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-surface-container-high text-secondary font-label-code text-label-code px-space-sm py-space-xs font-bold">
+                                    AWWWARDS SOTD
+                                </div>
+                            </div>
+                            <div class="p-space-lg flex flex-col gap-space-sm">
+                                <div
+                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
+                                    <span>GSAP</span> • <span>RESPONSIVE GRID</span> • <span>HEADLESS CMS</span>
+                                </div>
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                                    Verve Architecture Atelier
+                                </h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    An architectural archive built with kinetic canvas transitions, smooth inertia
+                                    scrolling, and high-fidelity project blueprints for a Swiss architectural studio.
+                                </p>
+                                <div
+                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
+                                    <span class="text-on-surface-variant">CLIENT: VERVE ATELIER ZÜRICH</span>
+                                    <span
+                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
+                                        CASE →</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Project 4: Novus AI -->
+                        <article
+                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
+                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    data-alt="Abstract computational intelligence node network visual with indigo and electric cyan laser connections on pitch black background"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBay_H0OWiZRRu_sIv5k4R6GUEy3df6o_qMDVyezon0bnbAc-2TeqIR9IikaQ7AEZhlQ5RE-kUKhcyuyzVvIzzq7Z2jQCveLx839yIPhPjKOvjFkBGqPwSRcDpvCgun2Fyw2Nuokc5OPBz1rcNf4W7U3gKDzIWaV40kJp6z4Tjo-wUR98q0p4g-GpYFrsLfqtyBhur4TUs1ELUsAoFjHkRY3OCmbkXFXRdQsuyXrolch68JKfgV9FMRVA" />
+                                <div
+                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-primary">
+                                    AI COPILOT PLATFORM
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-primary-container text-on-primary-container font-label-code text-label-code px-space-sm py-space-xs font-bold">
+                                    4.2X CONVERSION
+                                </div>
+                            </div>
+                            <div class="p-space-lg flex flex-col gap-space-sm">
+                                <div
+                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
+                                    <span>AI UX</span> • <span>MICRO-INTERACTIONS</span> • <span>FULL STACK</span>
+                                </div>
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                                    Novus AI Enterprise OS
+                                </h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    Enterprise workflow platform interface translating complex predictive neural network
+                                    telemetry into actionable, zero-friction operator command palettes.
+                                </p>
+                                <div
+                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
+                                    <span class="text-on-surface-variant">CLIENT: NOVUS RESEARCH</span>
+                                    <span
+                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
+                                        CASE →</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- SERVICES & CAPABILITIES -->
+            <section class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface scroll-mt-24" id="services">
+                <div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col gap-space-xs max-w-2xl">
+                        <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                            <span>[ SECTION 03 ]</span>
+                            <span>// CORE CAPABILITIES</span>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                            High-impact web engineering from vision to deployment
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">
+                            We combine avant-garde creative direction with uncompromising computational performance. No
+                            templates. No shortcuts.
+                        </p>
+                    </div>
+                    <!-- Capability Bento Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                        <!-- Capability 1 -->
+                        <div
+                            class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md transition-all hover:bg-surface-container">
+                            <div class="flex flex-col gap-space-md">
+                                <div
+                                    class="w-12 h-12 bg-surface-container flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Bespoke Creative Development
+                                </h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                    WebGL shaders, interactive 3D canvases, Three.js environments, and choreographed
+                                    GSAP motion architectures that command industry attention.
+                                </p>
+                            </div>
+                            <ul
+                                class="flex flex-col gap-space-xs font-label-code text-label-code text-on-surface-variant">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>Shader
+                                    Optimization</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>Custom
+                                    Physics</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>Smooth
+                                    Inertia</li>
+                            </ul>
+                        </div>
+                        <!-- Capability 2 -->
+                        <div
+                            class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md transition-all hover:bg-surface-container">
+                            <div class="flex flex-col gap-space-md">
+                                <div
+                                    class="w-12 h-12 bg-surface-container flex items-center justify-center text-secondary">
+                                    <span class="material-symbols-outlined text-[24px]">design_services</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Brand &amp; UI/UX Systems
+                                </h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                    Comprehensive design systems, tokenized design architectures, surgical typography,
+                                    and responsive ergonomics refined across all device classes.
+                                </p>
+                            </div>
+                            <ul
+                                class="flex flex-col gap-space-xs font-label-code text-label-code text-on-surface-variant">
+                                <li class="flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 bg-secondary"></span>Component Tokens</li>
+                                <li class="flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 bg-secondary"></span>Micro-interactions</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary"></span>Fluid
+                                    Breakpoints</li>
+                            </ul>
+                        </div>
+                        <!-- Capability 3 -->
+                        <div
+                            class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md transition-all hover:bg-surface-container">
+                            <div class="flex flex-col gap-space-md">
+                                <div
+                                    class="w-12 h-12 bg-surface-container flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined text-[24px]">bolt</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Performance &amp; SEO Architecture
+                                </h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                    Engineered for absolute speed. Sub-second initial paints, flawless Core Web Vitals,
+                                    headless content APIs, and structured semantic hierarchy.
+                                </p>
+                            </div>
+                            <ul
+                                class="flex flex-col gap-space-xs font-label-code text-label-code text-on-surface-variant">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>100/100
+                                    Lighthouse</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>Edge
+                                    Caching</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary"></span>Semantic
+                                    JSON-LD</li>
+                            </ul>
+                        </div>
+                        <!-- Capability 4 -->
+                        <div
+                            class="bg-surface-container-low p-space-lg flex flex-col justify-between gap-space-md transition-all hover:bg-surface-container">
+                            <div class="flex flex-col gap-space-md">
+                                <div
+                                    class="w-12 h-12 bg-surface-container flex items-center justify-center text-secondary">
+                                    <span class="material-symbols-outlined text-[24px]">terminal</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Full-Cycle Product Engineering
+                                </h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                    Enterprise Next.js apps, robust TypeScript architectures, serverless workflows,
+                                    third-party payment routing, and resilient cloud deployments.
+                                </p>
+                            </div>
+                            <ul
+                                class="flex flex-col gap-space-xs font-label-code text-label-code text-on-surface-variant">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary"></span>React
+                                    / Next.js</li>
+                                <li class="flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 bg-secondary"></span>TypeScript Rigor</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary"></span>CI/CD
+                                    Automated</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- HOW WE BUILD / METHODOLOGY -->
+            <section
+                class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface-container-lowest scroll-mt-24"
+                id="process">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                    <!-- Left Column (Sticky Overview) -->
+                    <div class="lg:col-span-5 flex flex-col gap-space-md lg:sticky lg:top-28 h-fit">
+                        <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                            <span>[ SECTION 04 ]</span>
+                            <span>// METHODOLOGY</span>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                            How we build digital products that lead markets
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Our methodology eliminates bloated agency bureaucracy. We operate as an elite surgical
+                            engineering squad working collaboratively with your leadership team.
+                        </p>
+                        <div class="p-space-md bg-surface-container-low flex flex-col gap-space-xs mt-space-sm">
+                            <span class="font-label-caps text-label-caps text-primary uppercase">PRODUCTION
+                                PROTOCOL</span>
+                            <span class="font-body-sm text-body-sm text-on-surface">Strict 4-stage validation cycle
+                                prior to public deployment.</span>
+                        </div>
+                    </div>
+                    <!-- Right Column: Step-by-Step Evolution -->
+                    <div class="lg:col-span-7 flex flex-col gap-space-lg">
+                        <!-- Phase 01 -->
+                        <div class="bg-surface-container-low p-space-lg flex flex-col gap-space-sm">
+                            <div class="flex items-center justify-between font-label-code text-label-code">
+                                <span class="text-primary font-bold">PHASE // 01</span>
+                                <span class="text-on-surface-variant">EST: 1-2 WEEKS</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                Discovery &amp; Architectural Blueprint
+                            </h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Deep-dive operational alignment, competitive benchmarking, user journey mapping, and
+                                technical stack selection to lock in uncompromising foundations.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-space-xs">
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Scope
+                                    Definition</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Technical
+                                    Feasibility</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Content
+                                    Strategy</span>
+                            </div>
+                        </div>
+                        <!-- Phase 02 -->
+                        <div class="bg-surface-container-low p-space-lg flex flex-col gap-space-sm">
+                            <div class="flex items-center justify-between font-label-code text-label-code">
+                                <span class="text-primary font-bold">PHASE // 02</span>
+                                <span class="text-on-surface-variant">EST: 2-3 WEEKS</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                Art Direction &amp; Interactive Prototyping
+                            </h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Crafting high-conviction visual concepts, typographic rhythm systems, interactive motion
+                                design, and fully testable Figma design architecture.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-space-xs">
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Design
+                                    Tokens</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Motion
+                                    Choreography</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Rapid
+                                    User Testing</span>
+                            </div>
+                        </div>
+                        <!-- Phase 03 -->
+                        <div class="bg-surface-container-low p-space-lg flex flex-col gap-space-sm">
+                            <div class="flex items-center justify-between font-label-code text-label-code">
+                                <span class="text-primary font-bold">PHASE // 03</span>
+                                <span class="text-on-surface-variant">EST: 3-5 WEEKS</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                Production Development &amp; Creative Code
+                            </h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Full-stack engineering with modern React / Next.js pipelines, GPU-accelerated WebGL
+                                visuals, accessible HTML5 structures, and fluid responsive styling.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-space-xs">
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Zero-Bloat
+                                    CSS</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">TypeScript
+                                    Contracts</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">CMS
+                                    Binding</span>
+                            </div>
+                        </div>
+                        <!-- Phase 04 -->
+                        <div class="bg-surface-container-low p-space-lg flex flex-col gap-space-sm">
+                            <div class="flex items-center justify-between font-label-code text-label-code">
+                                <span class="text-primary font-bold">PHASE // 04</span>
+                                <span class="text-on-surface-variant">EST: 1 WEEK</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                Performance Tuning &amp; Global Deployment
+                            </h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Cross-device audits (320px up to 2560px), automated lighthouse calibration, Core Web
+                                Vitals optimization, DNS cutover, and seamless zero-downtime launch.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-space-xs">
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Vitals
+                                    Audit 100%</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Global
+                                    CDN Setup</span>
+                                <span
+                                    class="bg-surface-container px-2 py-1 font-label-code text-label-code text-on-surface-variant">Post-Launch
+                                    Telemetry</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ABOUT & CRAFT PHILOSOPHY -->
+            <section class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface scroll-mt-24" id="about">
+                <div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+                    <!-- Story Block -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                        <div class="lg:col-span-6 flex flex-col gap-space-md">
+                            <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                                <span>[ SECTION 05 ]</span>
+                                <span>// THE STUDIO MANIFESTO</span>
+                            </div>
+                            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                                Bridging engineering rigor with visionary digital craft.
+                            </h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant">
+                                Shivani Web Studio was established to dismantle the false dilemma between artistic
+                                beauty and ruthless computational performance. We reject cookie-cutter themes and
+                                generic design playbooks.
+                            </p>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Every client release is treated as a bespoke digital installation — architected with
+                                mathematical precision, elevated by typography, and engineered to outperform competitors
+                                on speed and conversion.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-6 relative">
+                            <div
+                                class="relative bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-2xl">
+                                <span
+                                    class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">//
+                                    STUDIO TELEMETRY METRICS</span>
+                                <div class="grid grid-cols-2 gap-gutter">
+                                    <div class="bg-surface-container p-space-md flex flex-col gap-1">
+                                        <span class="font-display-hero text-headline-lg text-primary">8+</span>
+                                        <span class="font-label-code text-label-code text-on-surface-variant">YEARS OF
+                                            CRAFT</span>
+                                    </div>
+                                    <div class="bg-surface-container p-space-md flex flex-col gap-1">
+                                        <span class="font-display-hero text-headline-lg text-secondary">99.9%</span>
+                                        <span class="font-label-code text-label-code text-on-surface-variant">BENCHMARK
+                                            SPEED</span>
+                                    </div>
+                                    <div class="bg-surface-container p-space-md flex flex-col gap-1">
+                                        <span class="font-display-hero text-headline-lg text-on-surface">100%</span>
+                                        <span class="font-label-code text-label-code text-on-surface-variant">CUSTOM
+                                            BUILDS</span>
+                                    </div>
+                                    <div class="bg-surface-container p-space-md flex flex-col gap-1">
+                                        <span class="font-display-hero text-headline-lg text-primary-fixed-dim">0</span>
+                                        <span class="font-label-code text-label-code text-on-surface-variant">TEMPLATE
+                                            SHORTCUTS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tech Stack Marquee Representation -->
+                    <div class="flex flex-col gap-space-sm pt-space-lg">
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-center">
+                            CORE PRODUCTION STACK &amp; ENGINE INTEGRATIONS
+                        </span>
+                        <div
+                            class="flex flex-wrap items-center justify-center gap-space-md font-label-code text-label-code text-on-surface-variant">
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-on-surface">REACT
+                                19</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-on-surface">NEXT.JS
+                                15</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-primary">THREE.JS /
+                                WEBGL</span>
+                            <span
+                                class="bg-surface-container-low px-space-md py-space-xs text-on-surface">TYPESCRIPT</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-secondary">TAILWIND
+                                CSS</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-on-surface">GSAP
+                                MOTION</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-on-surface">NODE.JS
+                                RUNTIMES</span>
+                            <span class="bg-surface-container-low px-space-md py-space-xs text-primary">FIGMA
+                                SYSTEMS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- FAQ SECTION -->
+            <section
+                class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface-container-lowest scroll-mt-24"
+                id="faq">
+                <div class="max-w-5xl mx-auto flex flex-col gap-space-xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col gap-space-xs text-center items-center">
+                        <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                            <span>[ SECTION 06 ]</span>
+                            <span>// CLARIFICATIONS</span>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                            Everything you need to know about engaging Shivani Web Studio for your next digital product
+                            or flagship web platform.
+                        </p>
+                    </div>
+                    <!-- FAQ Accordion List -->
+                    <div class="flex flex-col gap-space-sm" id="faq-accordion">
+                        <!-- Item 1 -->
+                        <div class="faq-item bg-surface-container-low transition-colors duration-200">
+                            <button
+                                class="faq-trigger w-full p-space-lg flex items-center justify-between text-left cursor-pointer"
+                                type="button">
+                                <span class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    What makes Shivani Web Studio different from traditional agencies?
+                                </span>
+                                <span
+                                    class="material-symbols-outlined text-primary faq-icon transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div
+                                class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-space-lg">
+                                <p class="font-body-md text-body-md text-on-surface-variant pb-space-lg">
+                                    We operate as a high-density, senior craft studio rather than an agency layered with
+                                    account middlemen. When you work with us, you partner directly with the principal
+                                    architects and creative developers building your product. Every project is coded
+                                    entirely bespoke, delivering world-class visuals without sacrificing sub-second page
+                                    performance.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="faq-item bg-surface-container-low transition-colors duration-200">
+                            <button
+                                class="faq-trigger w-full p-space-lg flex items-center justify-between text-left cursor-pointer"
+                                type="button">
+                                <span class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    How long does a typical custom website project take?
+                                </span>
+                                <span
+                                    class="material-symbols-outlined text-primary faq-icon transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div
+                                class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-space-lg">
+                                <p class="font-body-md text-body-md text-on-surface-variant pb-space-lg">
+                                    A standard flagship web build spans between 4 to 8 weeks from kickoff blueprint to
+                                    deployment. Larger enterprise web platforms or WebGL-heavy interactive experiences
+                                    typically run 8 to 12 weeks. We work with strict milestone sprint intervals and
+                                    provide weekly production staging environments.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="faq-item bg-surface-container-low transition-colors duration-200">
+                            <button
+                                class="faq-trigger w-full p-space-lg flex items-center justify-between text-left cursor-pointer"
+                                type="button">
+                                <span class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Do you handle responsive design for every device and screen size?
+                                </span>
+                                <span
+                                    class="material-symbols-outlined text-primary faq-icon transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div
+                                class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-space-lg">
+                                <p class="font-body-md text-body-md text-on-surface-variant pb-space-lg">
+                                    Yes, unconditionally. We don't just collapse three desktop columns into one mobile
+                                    column. We engineer fluid typography via mathematical clamp functions, calibrate
+                                    touch hit-states, re-choreograph animations for handheld ergonomics, and rigorously
+                                    test on real physical hardware from 320px phones to 32-inch 4K displays.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="faq-item bg-surface-container-low transition-colors duration-200">
+                            <button
+                                class="faq-trigger w-full p-space-lg flex items-center justify-between text-left cursor-pointer"
+                                type="button">
+                                <span class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    What does your design and development tech stack look like?
+                                </span>
+                                <span
+                                    class="material-symbols-outlined text-primary faq-icon transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div
+                                class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-space-lg">
+                                <p class="font-body-md text-body-md text-on-surface-variant pb-space-lg">
+                                    We leverage modern industry standard tools: Figma for foundational design systems
+                                    and prototypes; Next.js / React with TypeScript for rock-solid application
+                                    structure; Tailwind CSS for zero-runtime styling; and Three.js / WebGL / GSAP for
+                                    performant GPU-driven animations.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="faq-item bg-surface-container-low transition-colors duration-200">
+                            <button
+                                class="faq-trigger w-full p-space-lg flex items-center justify-between text-left cursor-pointer"
+                                type="button">
+                                <span class="font-headline-sm text-headline-sm text-on-surface uppercase">
+                                    Do you provide post-launch support and ongoing maintenance?
+                                </span>
+                                <span
+                                    class="material-symbols-outlined text-primary faq-icon transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div
+                                class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-space-lg">
+                                <p class="font-body-md text-body-md text-on-surface-variant pb-space-lg">
+                                    Every build includes 30 days of complimentary post-launch warranty and monitoring.
+                                    Following this period, we provide Studio Retainer packages covering proactive
+                                    security, feature iteration, Core Web Vitals protection, and monthly technical
+                                    optimizations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CONTACT & INITIATION SECTION -->
+            <section class="w-full py-20 lg:py-32 px-margin-mobile lg:px-margin bg-surface scroll-mt-24" id="contact">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                    <!-- Left Column: Engagement Overview -->
+                    <div class="lg:col-span-5 flex flex-col justify-between gap-space-lg">
+                        <div class="flex flex-col gap-space-md">
+                            <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary">
+                                <span>[ SECTION 07 ]</span>
+                                <span>// TRANSMISSION INITIATION</span>
+                            </div>
+                            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+                                Ready to build something unforgettable?
+                            </h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant">
+                                Tell us about your brand vision, operational objectives, and expected launch timeline.
+                                We will inspect your brief and get back to you within 24 hours.
+                            </p>
+                            <div class="flex flex-col gap-space-sm pt-space-sm">
+                                <div class="flex items-center gap-space-sm">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-[20px]">mark_email_read</span>
+                                    <a class="font-label-code text-label-code text-on-surface hover:text-primary transition-colors"
+                                        href="mailto:hello@shivaniweb.studio">
+                                        shivaniwebstudio@gmail.com
+                                    </a>
+                                </div>
+                                <div class="flex items-center gap-space-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">chat</span>
+                                    <a class="font-label-code text-label-code text-on-surface hover:text-primary transition-colors"
+                                        href="https://wa.me/" rel="noopener" target="_blank">
+                                        Chat on WhatsApp Studio Direct ↗
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low p-space-md flex flex-col gap-space-xs">
+                            <span
+                                class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">INTELLECTUAL
+                                PROPERTY &amp; SECURITY</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">All client projects are
+                                covered by mutual non-disclosure agreements prior to full technical discovery.</span>
+                        </div>
+                    </div>
+                    <!-- Right Column: Interactive Intake Form -->
+                    <div class="lg:col-span-7 bg-surface-container-low p-space-lg shadow-xl">
+                        <form class="flex flex-col gap-space-md" id="project-form">
+                            <!-- Row 1: Name and Email -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+                                <div class="flex flex-col gap-space-xs">
+                                    <label
+                                        class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider"
+                                        for="form-name">Your Name *</label>
+                                    <input
+                                        class="bg-surface-container px-space-md py-space-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container-high transition-colors"
+                                        id="form-name" placeholder="Elena Vance" required="" type="text" />
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <label
+                                        class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider"
+                                        for="form-email">Email Address *</label>
+                                    <input
+                                        class="bg-surface-container px-space-md py-space-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container-high transition-colors"
+                                        id="form-email" placeholder="elena@organization.com" required="" type="email" />
+                                </div>
+                            </div>
+                            <!-- Row 2: Company and Timeline -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+                                <div class="flex flex-col gap-space-xs">
+                                    <label
+                                        class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider"
+                                        for="form-company">Company / Entity</label>
+                                    <input
+                                        class="bg-surface-container px-space-md py-space-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container-high transition-colors"
+                                        id="form-company" placeholder="Vance Dynamics Corp" type="text" />
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <label
+                                        class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider"
+                                        for="form-timeline">Target Launch Date</label>
+                                    <input
+                                        class="bg-surface-container px-space-md py-space-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container-high transition-colors"
+                                        id="form-timeline" placeholder="Q3 2025" type="text" />
+                                </div>
+                            </div>
+                            <!-- Budget Brackets -->
+                            <div class="flex flex-col gap-space-xs">
+                                <span
+                                    class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Anticipated
+                                    Budget Scope *</span>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                    <button
+                                        class="budget-option bg-surface-container hover:bg-surface-container-high py-space-sm px-space-xs text-center font-label-code text-label-code text-on-surface transition-colors"
+                                        data-budget="$5k-$10k" type="button">
+                                        $5k - $10k
+                                    </button>
+                                    <button
+                                        class="budget-option bg-surface-container hover:bg-surface-container-high py-space-sm px-space-xs text-center font-label-code text-label-code text-on-surface transition-colors"
+                                        data-budget="$10k-$25k" type="button">
+                                        $10k - $25k
+                                    </button>
+                                    <button
+                                        class="budget-option active bg-primary-container text-on-primary-container font-bold py-space-sm px-space-xs text-center font-label-code text-label-code transition-colors"
+                                        data-budget="$25k-$50k" type="button">
+                                        $25k - $50k
+                                    </button>
+                                    <button
+                                        class="budget-option bg-surface-container hover:bg-surface-container-high py-space-sm px-space-xs text-center font-label-code text-label-code text-on-surface transition-colors"
+                                        data-budget="$50k+" type="button">
+                                        $50k+
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Project Details -->
+                            <div class="flex flex-col gap-space-xs">
+                                <label
+                                    class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider"
+                                    for="form-details">Brief Project Overview *</label>
+                                <textarea
+                                    class="bg-surface-container p-space-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container-high transition-colors resize-none"
+                                    id="form-details"
+                                    placeholder="Describe goals, primary deliverables, design references, and any specific technical requirements..."
+                                    required="" rows="4"></textarea>
+                            </div>
+                            <!-- Submit Button & Feedback Status -->
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs">
+                                <button
+                                    class="w-full sm:w-auto bg-primary-container text-on-primary-container px-space-xl py-space-md font-label-code text-label-code uppercase tracking-wider font-bold transition-all shadow-xl hover:shadow-[0_0_28px_rgba(6,182,212,0.4)] active:scale-95 flex items-center justify-center gap-space-sm"
+                                    id="submit-btn" type="submit">
+                                    <span id="submit-text">[ TRANSMIT INQUIRY ] →</span>
+                                </button>
+                                <div class="font-label-code text-label-code text-primary opacity-0 transition-opacity duration-300"
+                                    id="form-status">
+                                    TRANSMISSION RECEIVED // WE WILL REPLY IN 24H
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- Interactive Logic Scripts -->
+            <script>
+                // FAQ Accordion Handler
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach(item => {
+                    const trigger = item.querySelector('.faq-trigger');
+                    const content = item.querySelector('.faq-content');
+                    const icon = item.querySelector('.faq-icon');
+
+                    trigger.addEventListener('click', () => {
+                        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                        // Close all items
+                        faqItems.forEach(otherItem => {
+                            const otherContent = otherItem.querySelector('.faq-content');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            if (otherContent) otherContent.style.maxHeight = '0px';
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                        });
+
+                        // Toggle current item
+                        if (!isOpen) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+
+                // Budget Selector Handler
+                const budgetButtons = document.querySelectorAll('.budget-option');
+                budgetButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        budgetButtons.forEach(b => {
+                            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                            b.classList.add('bg-surface-container', 'text-on-surface');
+                        });
+                        btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                        btn.classList.remove('bg-surface-container', 'text-on-surface');
+                    });
+                });
+
+                // Form Submission Interactive Mock
+                const projectForm = document.getElementById('project-form');
+                const submitBtn = document.getElementById('submit-btn');
+                const submitText = document.getElementById('submit-text');
+                const formStatus = document.getElementById('form-status');
+
+                if (projectForm) {
+                    projectForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        submitBtn.disabled = true;
+                        submitText.textContent = "TRANSMITTING TELEMETRY...";
+
+                        setTimeout(() => {
+                            submitText.textContent = "TRANSMITTED SUCCESSFULLY";
+                            formStatus.classList.remove('opacity-0');
+                            formStatus.classList.add('opacity-100');
+                            projectForm.reset();
+
+                            setTimeout(() => {
+                                submitBtn.disabled = false;
+                                submitText.textContent = "[ TRANSMIT INQUIRY ] →";
+                            }, 4000);
+                        }, 800);
+                    });
+                }
+
+                // Work Filter Interactive Toggle
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterButtons.forEach(b => {
+                            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                        });
+                        btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                    });
+                });
+            </script>
+        </div>
+    </main>
+    <footer class="w-full bg-surface-container-lowest mt-space-xl">
+        <div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin pt-space-xl pb-space-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-space-xl">
+                <div class="lg:col-span-4 flex flex-col gap-space-md">
+                    <div class="flex items-center gap-space-sm"><img alt="Shivani Web Studio Emblem"
+                            class="h-8 w-auto object-contain"
+                            src="https://lh3.googleusercontent.com/aida/AEtjO1W_oAMhS1GJeSTUvmi541k6gXyuW_2Kc8zZLCHxmIw3iJXZ_fMZt1kK2KvU8_zB-iboxhef3mlLyNeIHQse82bllqPnL1OJmSkNQrb3SQ2Ahjbu_n2sOnMq3vGKmKpPF1pxZYZP_zPnCYNRWo-N9pSAiAtINW_loUHYI39LhuFZxFz5GqjOsCXWEN9eZbhyowrv1eAhidZYtd0jazvKHrhimkPZS2-YeitCkw67cTYFVq6ZIHmmgmiVfDVL" /><span
+                            class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface">Shivani
+                            Web Studio</span></div>
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">High-performance digital
+                        laboratory engineering next-generation interfaces, bespoke brand identities, and cyber-luxe
+                        design systems.</p>
+                    <div class="flex items-center gap-space-xs font-label-code text-label-code text-primary"><span
+                            class="w-2 h-2 bg-primary animate-pulse"></span><span>STUDIO TELEMETRY // ONLINE</span>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 flex flex-col gap-space-sm">
+                    <h3 class="font-label-caps text-label-caps uppercase text-on-surface tracking-widest text-primary">
+                        Directory</h3><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#home">Index / Home</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#work">Showcase / Work</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#services">Capabilities</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#process">Methodology</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#about">Studio Profile</a><a
+                        class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        href="#faq">Inquiries &amp; FAQ</a>
+                </div>
+                <div class="lg:col-span-3 flex flex-col gap-space-sm">
+                    <h3 class="font-label-caps text-label-caps uppercase text-on-surface tracking-widest text-primary">
+                        Transmission</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Location: 40.7128° N, 74.0060°
+                        W<br />New York // Global Studio</p><a
+                        class="font-label-code text-label-code text-on-surface hover:text-primary transition-colors flex items-center gap-space-xs"
+                        href="mailto:hello@shivaniweb.studio"><span
+                            class="material-symbols-outlined text-[16px]">alternate_email</span>hello@shivaniweb.studio</a><a
+                        class="font-label-code text-label-code text-on-surface hover:text-primary transition-colors flex items-center gap-space-xs"
+                        href="https://wa.me/" rel="noopener" target="_blank"><span
+                            class="material-symbols-outlined text-[16px]">chat</span>WhatsApp Studio Direct</a>
+                    <div class="flex items-center gap-space-md pt-space-xs"><a aria-label="Social Channel X"
+                            class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors"
+                            href="#">X.COM</a><a aria-label="Social Channel GitHub"
+                            class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors"
+                            href="#">GITHUB</a><a aria-label="Social Channel Dribbble"
+                            class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors"
+                            href="#">DRIBBBLE</a><a aria-label="Social Channel LinkedIn"
+                            class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors"
+                            href="#">LINKEDIN</a></div>
+                </div>
+                <div class="lg:col-span-3 flex flex-col gap-space-sm">
+                    <h3 class="font-label-caps text-label-caps uppercase text-on-surface tracking-widest text-primary">
+                        Dispatch Feed</h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Receive intermittent engineering essays
+                        and design field notes.</p>
+                    <form class="flex flex-col gap-space-xs"><input
+                            class="bg-surface-container-low px-space-md py-space-sm font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:bg-surface-container"
+                            placeholder="terminal@organization.com" type="email" /><button
+                            class="bg-surface-container px-space-md py-space-sm font-label-code text-label-code uppercase tracking-wider text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-all text-left"
+                            type="button">[ SUBSCRIBE TRANSMISSION ]</button></form>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-lg"><span
+                    class="font-label-code text-label-code text-on-surface-variant">© 2025 Shivani Web Studio LLC. All
+                    surgical privileges reserved.</span><span
+                    class="font-label-code text-label-code text-on-surface-variant">EST. 2024 // TERMINAL LUXURY
+                    SYSTEM</span></div>
+        </div>
+    </footer><button aria-label="Back to top"
+        class="fixed bottom-8 right-8 z-40 w-12 h-12 flex items-center justify-center bg-surface-container-low/90 backdrop-blur-lg hover:bg-surface-container transition-all group shadow-[0_0_16px_rgba(0,0,0,0.5)] opacity-0 pointer-events-none"
+        id="back-to-top"><svg class="progress-ring absolute w-12 h-12 pointer-events-none" viewbox="0 0 48 48">
+            <circle class="progress-ring__circle stroke-primary" cx="24" cy="24" fill="transparent" r="20"
+                stroke-dasharray="125.66" stroke-dashoffset="125.66" stroke-width="2"></circle>
+        </svg><span
+            class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors text-[20px]">arrow_upward</span></button>
+    <script>const bttBtn = document.getElementById('back-to-top'); const circle = document.querySelector('.progress-ring__circle'); const circumference = 2 * Math.PI * 20; if (circle) { circle.style.strokeDasharray = `${circumference} ${circumference}`; circle.style.strokeDashoffset = `${circumference}`; } window.addEventListener('scroll', () => { const scrollTop = window.scrollY || document.documentElement.scrollTop; const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; const progress = docHeight > 0 ? scrollTop / docHeight : 0; if (circle) { circle.style.strokeDashoffset = `${circumference - progress * circumference}`; } if (scrollTop > 200) { bttBtn.classList.remove('opacity-0', 'pointer-events-none'); bttBtn.classList.add('opacity-100', 'pointer-events-auto'); } else { bttBtn.classList.add('opacity-0', 'pointer-events-none'); bttBtn.classList.remove('opacity-100', 'pointer-events-auto'); } }); bttBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); const cursorDot = document.getElementById('cursor-dot'); const cursorRing = document.getElementById('cursor-ring'); window.addEventListener('mousemove', (e) => { if (cursorDot && cursorRing) { cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`; cursorRing.style.left = `${e.clientX}px`; cursorRing.style.top = `${e.clientY}px`; } }); const drawer = document.getElementById('mobile-drawer'); const drawerTrigger = document.getElementById('mobile-menu-trigger'); const drawerClose = document.getElementById('mobile-menu-close'); const mobileLinks = document.querySelectorAll('.mobile-link'); const toggleDrawer = (open) => { if (open) { drawer.classList.remove('translate-x-full'); document.body.style.overflow = 'hidden'; } else { drawer.classList.add('translate-x-full'); document.body.style.overflow = ''; } }; if (drawerTrigger) { drawerTrigger.addEventListener('click', () => toggleDrawer(true)); } if (drawerClose) { drawerClose.addEventListener('click', () => toggleDrawer(false)); } mobileLinks.forEach(link => { link.addEventListener('click', () => toggleDrawer(false)); });</script>
+</body>
+
+</html>
