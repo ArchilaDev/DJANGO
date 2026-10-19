@@ -92,7 +92,10 @@
                     data-path="contact" href="#contact">Contact</a></nav>
             <div class="flex items-center gap-space-md"><a
                     class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary-container px-space-md py-space-sm font-label-code text-label-code uppercase tracking-wider font-bold transition-all shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:shadow-[0_0_28px_rgba(6,182,212,0.5)] active:scale-95"
-                    href="#contact"> {{Nombre}} {{Apellido}} {{Fecha.year}} {{Fecha.month}} {{Fecha.day}} </a>
+                    href="#contact"> {{Nombre}} {{Apellido}} {{Fecha.year}} {{Fecha.month}} {{Fecha.day}}
+                    <br>
+
+                </a>
                 <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
                         class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button
                     aria-label="Toggle Menu"
@@ -170,7 +173,7 @@
                         <div class="flex flex-wrap items-center gap-space-md pt-space-sm">
                             <a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container px-space-lg py-space-md font-label-code text-label-code uppercase tracking-wider font-bold transition-all shadow-xl hover:shadow-[0_0_28px_rgba(6,182,212,0.45)] active:scale-95"
                                 href="#contact">
-                                [ 01 // START A PROJECT ] →
+                                <!--{{Lista.0}}--> 
                             </a>
                             <a class="inline-flex items-center gap-space-xs bg-surface-container-low text-on-surface hover:text-primary px-space-lg py-space-md font-label-code text-label-code uppercase tracking-wider transition-all hover:bg-surface-container"
                                 href="#work">
@@ -304,6 +307,9 @@
                     </div>
                     <!-- Case Studies Grid -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+                        {% if Lista  == "Python" %} <!--POR QUE NO ME DA?-->
+                            {% for elemento in Lista %}
+
                         <!-- Project 1: Aura Spatial Audio -->
                         <article
                             class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
@@ -327,7 +333,7 @@
                                 </div>
                                 <h3
                                     class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
-                                    Aura Spatial Audio
+                                    {{elemento}}
                                 </h3>
                                 <p class="font-body-md text-body-md text-on-surface-variant">
                                     An immersive computational audio interface engineered with custom GLSL shaders, 3D
@@ -342,121 +348,48 @@
                                 </div>
                             </div>
                         </article>
-                        <!-- Project 2: Kroma Pay -->
-                        <article
+                       {% endfor %}
+
+                       {% else %}
+                            <article
                             class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
                             <div class="relative w-full h-80 overflow-hidden bg-surface-container">
                                 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    data-alt="High tech dark mode financial interface dashboard on obsidian screen with glowing neon cyan telemetry curves and geometric data grids"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPH2XEwPq0_BPwPwQsgl2mcp5CVRJg1cNGd61LD1PJ9zKFx9SELomMhbZYNdW5DeisuYh7Slpfa9REmg8I2lPkNeolQtCj22DtwGp2zr70g5vBuNb5FA3_4OQvnZ8RN6DSeXmgg6zW0HtydSwsjmVvMfx0ClJVXZhBLWa6QBCMSAgYTG5OKjBozi5ns-4QjCqTjT-yz4cmzVEfJHttbTOuTwfn6DVwPJA6Gd2dDl494aAF6i-5NfZdVg" />
-                                <div
-                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-secondary">
-                                    ENTERPRISE FINTECH
-                                </div>
-                                <div
-                                    class="absolute bottom-4 right-4 bg-surface-container-high text-primary font-label-code text-label-code px-space-sm py-space-xs font-bold">
-                                    $1.4B ROUTED VOLUME
-                                </div>
-                            </div>
-                            <div class="p-space-lg flex flex-col gap-space-sm">
-                                <div
-                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
-                                    <span>NEXT.JS</span> • <span>DESIGN SYSTEMS</span> • <span>TYPESCRIPT</span>
-                                </div>
-                                <h3
-                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
-                                    Kroma Pay Global Treasury
-                                </h3>
-                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                    High-throughput cross-border asset protocol interface featuring zero-latency
-                                    transaction updates, sub-second settlement analytics, and institutional compliance
-                                    suites.
-                                </p>
-                                <div
-                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
-                                    <span class="text-on-surface-variant">CLIENT: KROMA FOUNDATION</span>
-                                    <span
-                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
-                                        CASE →</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Project 3: Verve Architecture -->
-                        <article
-                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
-                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    data-alt="Brutalist architectural concrete pavilion at dusk with sharp shadows and subtle cyan accent light lines, high dynamic range photograph"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKTQghcKwsD_X3C7_v7dYPRgTV7LX0mwvl8EoH77bYJmGIr0-_c0wijMctkQiXSosr_Z4KnueWzYYK2ZENixS1pdicHbGdNkouWpBOOnC3OzHU69CPP0qJxoPgquvY-A0FDC5Qe4YT3cI_UCzsn0ycWEd3A7SxqG9Y7iMHLnnvL4oRVXT0L_L2PaYEqHGGMlVdew-XBFyUdeEZkgZ_FQO-OWNHUwfxq30FfOK4IGPbDbyvmg9U7prMA" />
-                                <div
-                                    class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-on-surface">
-                                    MONOLITHIC EDITORIAL
-                                </div>
-                                <div
-                                    class="absolute bottom-4 right-4 bg-surface-container-high text-secondary font-label-code text-label-code px-space-sm py-space-xs font-bold">
-                                    AWWWARDS SOTD
-                                </div>
-                            </div>
-                            <div class="p-space-lg flex flex-col gap-space-sm">
-                                <div
-                                    class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
-                                    <span>GSAP</span> • <span>RESPONSIVE GRID</span> • <span>HEADLESS CMS</span>
-                                </div>
-                                <h3
-                                    class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
-                                    Verve Architecture Atelier
-                                </h3>
-                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                    An architectural archive built with kinetic canvas transitions, smooth inertia
-                                    scrolling, and high-fidelity project blueprints for a Swiss architectural studio.
-                                </p>
-                                <div
-                                    class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
-                                    <span class="text-on-surface-variant">CLIENT: VERVE ATELIER ZÜRICH</span>
-                                    <span
-                                        class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
-                                        CASE →</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Project 4: Novus AI -->
-                        <article
-                            class="group bg-surface-container-low flex flex-col overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl">
-                            <div class="relative w-full h-80 overflow-hidden bg-surface-container">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    data-alt="Abstract computational intelligence node network visual with indigo and electric cyan laser connections on pitch black background"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBay_H0OWiZRRu_sIv5k4R6GUEy3df6o_qMDVyezon0bnbAc-2TeqIR9IikaQ7AEZhlQ5RE-kUKhcyuyzVvIzzq7Z2jQCveLx839yIPhPjKOvjFkBGqPwSRcDpvCgun2Fyw2Nuokc5OPBz1rcNf4W7U3gKDzIWaV40kJp6z4Tjo-wUR98q0p4g-GpYFrsLfqtyBhur4TUs1ELUsAoFjHkRY3OCmbkXFXRdQsuyXrolch68JKfgV9FMRVA" />
+                                    data-alt="Futuristic black and electric cyan spatial sound wave visualizer in a dark monolithic tech room, cyber luxury aesthetic, high detail render"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOHlQ9Os9_81Hgt008Fj1e2bXEZ1rGkI0ddlYxRApbUc4lAVzfH24uGjpANHzDh2pbBg2q-f9XwFociTVDUmW2eGDryH1JidYg7Jq8X_VfkfFh_kQHXE8JnG8mxAw7-6BaGQPgeD-rY2M5IXp5pvw5RrnnI_JTwA3TxYoHJ-sBFBZfAAeytYxAgJXXZADYniQ8yDDJd1PBqp-VsafAyv2LC0Ja-0eP6kE8Fotuo-0OiCerAkJe62KXJw" />
                                 <div
                                     class="absolute top-4 left-4 bg-surface-container-lowest/90 px-space-sm py-space-xs font-label-caps text-label-caps uppercase text-primary">
-                                    AI COPILOT PLATFORM
+                                    FEATURED BENCHMARK
                                 </div>
                                 <div
-                                    class="absolute bottom-4 right-4 bg-primary-container text-on-primary-container font-label-code text-label-code px-space-sm py-space-xs font-bold">
-                                    4.2X CONVERSION
+                                    class="absolute bottom-4 right-4 bg-primary text-on-primary font-label-code text-label-code px-space-sm py-space-xs font-bold">
+                                    +180% ENGAGEMENT
                                 </div>
                             </div>
                             <div class="p-space-lg flex flex-col gap-space-sm">
                                 <div
                                     class="flex items-center gap-space-xs font-label-code text-label-code text-secondary">
-                                    <span>AI UX</span> • <span>MICRO-INTERACTIONS</span> • <span>FULL STACK</span>
+                                    <span>THREE.JS</span> • <span>WEBGL</span> • <span>REACT</span>
                                 </div>
                                 <h3
                                     class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
-                                    Novus AI Enterprise OS
+                                    <strong>Lo sentimos no tenemos contenido que mostrar</strong>
                                 </h3>
                                 <p class="font-body-md text-body-md text-on-surface-variant">
-                                    Enterprise workflow platform interface translating complex predictive neural network
-                                    telemetry into actionable, zero-friction operator command palettes.
+                                    An immersive computational audio interface engineered with custom GLSL shaders, 3D
+                                    interactive acoustics, and dynamic spatialized frequencies.
                                 </p>
                                 <div
                                     class="pt-space-sm flex items-center justify-between font-label-code text-label-code">
-                                    <span class="text-on-surface-variant">CLIENT: NOVUS RESEARCH</span>
+                                    <span class="text-on-surface-variant">CLIENT: AURA ACOUSTICS AG</span>
                                     <span
                                         class="text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">EXPLORE
                                         CASE →</span>
                                 </div>
                             </div>
                         </article>
+
+                       {% endif %}
                     </div>
                 </div>
             </section>

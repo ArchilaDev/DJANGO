@@ -1,5 +1,5 @@
 #Crear plantilla html ,importar
-from django.template import Template, Context
+from django.template import Template, Context, loader #loader.get_template()
 from django.http import HttpResponse, HttpRequest
 from datetime import datetime
 #metodo para cargar la primera plantilla
@@ -40,5 +40,22 @@ def variables(request):
     
     #dibujamos la plantilla
     vista = plt.render(ctx) #la unica forma que muestra codigo html en python
+    
+    return HttpResponse(vista)
+
+#bucles, filtros , condicionales, listas
+
+def bucles(request):
+    #simulacion de la base de datos
+    fecha = datetime.now()
+    nombre = "Santiago"
+    apellido="Archila"
+
+    #Crear una lista con 4 elementos de su preferencia
+    cursos = ["Python", "Git", "MySQL", "PHP"]
+
+    plt = loader.get_template('index.html')
+    #dibujamos la plantilla
+    vista = plt.render({"Nombre": nombre, "Apellido":apellido, "Fecha":fecha, "Lista" : cursos})#siempre usaremos diccionario para renderizar
     
     return HttpResponse(vista)

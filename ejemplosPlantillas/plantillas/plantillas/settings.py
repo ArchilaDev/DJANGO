@@ -54,7 +54,7 @@ ROOT_URLCONF = 'plantillas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/devel/Desktop/ESCRITORIO2/TODO/POLITECNICO/DJANGO/CodigoPy/DJANGO/ejemplosPlantillas/plantillas/plantillas/plantilla"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
